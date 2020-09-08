@@ -63,6 +63,9 @@ set_target_properties( noise-static PROPERTIES LIBNOISE_VERSION ${LIBNOISE_VERSI
 target_compile_definitions( noise PRIVATE NOISE_BUILD_DLL)
 target_compile_definitions( noise-static PUBLIC NOISE_STATIC)
 
+target_include_directories( noise PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} )
+target_include_directories( noise-static PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} )
+
 set_target_properties( noise-static PROPERTIES OUTPUT_NAME "noise" )
 
 # I would like to see more projects using these defaults
@@ -75,7 +78,7 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 endif()
 
 # install include files into /include
-install( DIRECTORY "${PROJECT_SOURCE_DIR}/src/noise" 
+install( DIRECTORY "${PROJECT_SOURCE_DIR}/src/noise"
 		DESTINATION "${CMAKE_INSTALL_PREFIX}/include" )
 
 # install dynamic libraries (.dll or .so) into /bin

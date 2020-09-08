@@ -22,11 +22,11 @@ elseif (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 endif()
 
 # Where to look for noise headers
-target_include_directories( noiseutils PRIVATE ${PROJECT_SOURCE_DIR}/src )
-target_include_directories( noiseutils-static PRIVATE ${PROJECT_SOURCE_DIR}/src )
+target_include_directories( noiseutils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} )
+target_include_directories( noiseutils-static PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} )
 
 # install include files into /include
-install( FILES "${PROJECT_SOURCE_DIR}/noiseutils/noiseutils.h" 
+install( FILES "${PROJECT_SOURCE_DIR}/noiseutils/noiseutils.h"
 		DESTINATION "${CMAKE_INSTALL_PREFIX}/include/noise" )
 
 # install dynamic libraries (.dll or .so) into /bin
