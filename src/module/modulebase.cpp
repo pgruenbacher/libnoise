@@ -40,6 +40,12 @@ Module::Module (int sourceModuleCount)
   }
 }
 
+Module::Module(const Module& m) : Module(m.GetSourceModuleCount()) {
+  for (int i = 0; i < m.GetSourceModuleCount(); ++i) {
+    m_pSourceModule[i] = m.m_pSourceModule[i];
+  }
+}
+
 Module::~Module ()
 {
   delete[] m_pSourceModule;

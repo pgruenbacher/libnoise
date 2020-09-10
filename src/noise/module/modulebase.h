@@ -243,6 +243,8 @@ namespace noise
         /// Destructor.
         virtual ~Module ();
 
+        Module(const Module&);
+
         /// Returns a reference to a source module connected to this noise
         /// module.
         ///
